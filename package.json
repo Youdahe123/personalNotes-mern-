@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Youdahe123/personalNotes-mern-/issues"
   },
-  "homepage": "https://github.com/Youdahe123/personalNotes-mern-#readme"
+  "homepage": "https://github.com/Youdahe123/personalNotes-mern-#readme",
+  "dependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
