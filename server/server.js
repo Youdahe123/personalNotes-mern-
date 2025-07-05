@@ -1,3 +1,4 @@
+import cors from 'cors'
 import path from 'path'
 import { fileURLToPath } from 'url';
 import User from './models/user.js';
@@ -9,6 +10,7 @@ const app = express();
 const PORT = 3000;
 import router from './routes/userRoute.js'
 import protect from './middleware/authMiddleWare.js';
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api/users',router)

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Login / Signup</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/dist/tailwind.min.css" rel="stylesheet">
     <style>
       body { font-family: sans-serif; background: #f3f4f6; }
       .container { max-width: 350px; margin: 60px auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
@@ -12,26 +13,46 @@
       .button.signup { background: #22c55e; }
       .link { text-align: center; display: block; margin-top: 1rem; color: #2563eb; text-decoration: underline; }
       .hidden { display: none; }
+      .notes-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <!-- Login Form (visible by default) -->
-      <form id="loginForm" method="POST" action="/api/users/signIn">
+       <div id="signIn">
+      <div id="loginForm">
         <h2>Login</h2>
-        <input class="input" type="text" name="username" placeholder="Username" required />
-        <input class="input" type="password" name="password" placeholder="Password" required />
-        <button class="button" type="submit">Login</button>
-        <a class="link" href="#signupForm">Don't have an account? Sign up</a>
-      </form>
+        <input class="input" type="text" name="username" placeholder="Username" autocomplete="off" required />
+        <input class="input" type="password" name="password" placeholder="Password" autocomplete="off" required />
+        <button class="button" onclick="logIn()">Login</button>
+        <button  onclick="submitForm()" class="button" type="button">Don't have an account? Sign up</button>
+      </div>
+      </div>
       <!-- Signup Form (hidden by default) -->
-      <form id="signupForm" class="hidden" method="POST" action="/api/users/register">
+       <div id="Submit" style="display: none;">
+      <div  id="signupForm" method="POST" action="/api/users/register">
         <h2>Sign Up</h2>
-        <input class="input" type="text" name="username" placeholder="Username" required />
-        <input class="input" type="password" name="password" placeholder="Password" required />
+        <input class="input" type="text" name="username" placeholder="Username" autocomplete="off" required />
+        <input class="input" type="password" name="password" placeholder="Password" autocomplete="off" required />
         <button class="button signup" type="submit">Sign Up</button>
-        <a class="link" href="#loginForm">Already have an account? Login</a>
-      </form>
-    </div>
+        <button  onclick="signInA()" class="button signup" type="button">Don't have an account? Sign up</button>
+      </div>
+      </div> 
+
+    <div id="notesSection" style="margin-top:2rem;">
+      <div class="notes-header">
+        <div style="font-size:x-large; font-weight: bold;">Your Notes</div>
+        <button class="button">Add Note</button>
+      </div>
+      <p id="title">Title:</p>
+      <p id="content">Content:</p>
+        
+      </div>
   </body>
+  <script src="index.js"></script>
 </html>

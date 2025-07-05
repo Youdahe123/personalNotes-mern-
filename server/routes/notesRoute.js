@@ -3,7 +3,7 @@ import express from 'express'
 
 const Notesrouter = express.Router()
 
-Notesrouter.post('/notes',async (req,res) =>{
+Notesrouter.post('/postNote',async (req,res) =>{
     try{
     const body = { title: req.body.title, content: req.body.content }
     const Body = await Notes.create({
@@ -16,13 +16,13 @@ Notesrouter.post('/notes',async (req,res) =>{
 
 
 })
-Notesrouter.get('/notes',async (req,res) =>{
+Notesrouter.get('/getNote',async (req,res) =>{
     try{
         const notes = await Notes.find({user: req.user.id})
         res.json({notes})
     }catch(err)
 {console.log(err),res.status(500).json({message:"Error"})}})
-Notesrouter.put('/notes/:id',async (req,res) =>{
+Notesrouter.put('/changeNote/:id',async (req,res) =>{
     try{
         const updatedNote = await Notes.findOneAndUpdate(
             { _id : req.params.id, user: req.user.id},
@@ -38,7 +38,7 @@ Notesrouter.put('/notes/:id',async (req,res) =>{
         res.status(500).json({message:"Error"})
     }
 })
-Notesrouter.delete('/notes/:id',async (req,res)=>{
+Notesrouter.delete('/delNote/:id',async (req,res)=>{
     try{
         const deletedNote = await Notes.findOneAndDelete({
             _id : req.params.id, user: req.user.id
