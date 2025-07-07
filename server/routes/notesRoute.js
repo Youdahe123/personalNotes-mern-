@@ -11,6 +11,7 @@ Notesrouter.post('/postNote',async (req,res) =>{
         title: body.title,
         content : body.content,
     })
+    console.log("Added Note")
     res.status(201).json({message:"Note Created:", Body})
     }catch(err){console.log(err),res.status(500).json({message: "Error"})}
 

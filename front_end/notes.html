@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body { font-family: sans-serif; background: #f3f4f6; }
+      .container { max-width: 350px; margin: 60px auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+      .button { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 4px; background: #2563eb; color: #fff; border: none; cursor: pointer; }
+      .notes-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      .input { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 4px; border: 1px solid #d1d5db;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="notesSection" style="margin-top:2rem;">
+        <div class="notes-header">
+          <div style="font-size:x-large; font-weight: bold;">Your Notes</div>
+          <button onclick="Add()" class="button" style="width:auto; margin-bottom:0;">Add Note</button>
+        </div>
+        <p id="title">Title:</p>
+        <p id="content">Content:</p>
+      </div>
+      <form id="addNoteForm" style="display: block; margin-top: 1rem;">
+        <div style="margin-bottom: 1rem;">
+          <label for="noteTitle" style="display:block; font-weight:bold;">Title</label>
+          <input id="noteTitle" name="title" type="text" class="input" placeholder="Note Title" required />
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label for="noteContent" style="display:block; font-weight:bold;">Content</label>
+          <textarea id="noteContent" name="content" class="input" placeholder="Note Content" required></textarea>
+        </div>
+        <button onclick="saveNote()" class="button" type="button">Save Note</button>
+        <button onclick="window.location.href = 'http://localhost:3000/'" class="button" type="button">Go Back</button>
+      </form>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>

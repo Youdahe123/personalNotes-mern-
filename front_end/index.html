@@ -22,8 +22,9 @@
     </style>
   </head>
   <body>
-    <div class="container">
+    <div style="display: block;" class="container">
       <!-- Login Form (visible by default) -->
+       <div id="signUpPage" >
        <div id="signIn">
       <div id="loginForm">
         <h2>Login</h2>
@@ -31,6 +32,7 @@
         <input class="input" type="password" name="password" placeholder="Password" autocomplete="off" required />
         <button class="button" onclick="logIn()">Login</button>
         <button  onclick="submitForm()" class="button" type="button">Don't have an account? Sign up</button>
+        <button  onclick="window.location.href = 'http://localhost:3000/notes.html'" class="button" type="button">Look at Notes</button>
       </div>
       </div>
       <!-- Signup Form (hidden by default) -->
@@ -40,18 +42,22 @@
         <input class="input" type="text" name="username" placeholder="Username" autocomplete="off" required />
         <input class="input" type="password" name="password" placeholder="Password" autocomplete="off" required />
         <button class="button signup" type="submit">Sign Up</button>
-        <button  onclick="signInA()" class="button signup" type="button">Don't have an account? Sign up</button>
+        <button  onclick="signInA()" class="button signup" type="button">Already have an Account Sign in</button>
       </div>
       </div> 
-
-    <div id="notesSection" style="margin-top:2rem;">
-      <div class="notes-header">
-        <div style="font-size:x-large; font-weight: bold;">Your Notes</div>
-        <button class="button">Add Note</button>
       </div>
-      <p id="title">Title:</p>
-      <p id="content">Content:</p>
-        
+      <form id="addNoteForm" style="display: none; margin-top: 1rem;">
+        <div style="margin-bottom: 1rem;">
+          <label for="noteTitle" style="display:block; font-weight:bold;">Title</label>
+          <input id="noteTitle" name="title" type="text" class="input" placeholder="Note Title" required />
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label for="noteContent" style="display:block; font-weight:bold;">Content</label>
+          <textarea id="noteContent" name="content" class="input" placeholder="Note Content" required></textarea>
+        </div>
+        <button onclick="saveNote()" class="button">Save Note</button>
+        <button onclick="goBack()" class="button">Sign In</button>
+      </form>
       </div>
   </body>
   <script src="index.js"></script>
